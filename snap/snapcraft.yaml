@@ -1,0 +1,21 @@
+name: test-snapd-control-dangerous
+base: core20
+version: '0.1'
+summary: test
+description: |
+  boilerplate.
+
+grade: devel 
+confinement: strict
+
+apps:
+  doit:
+    command: bin/doit.sh
+    plugs: [snapd-control]
+
+
+parts:
+  doit:
+    source: doit
+    plugin: dump
+    stage-packages: [ curl ]
